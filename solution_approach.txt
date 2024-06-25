@@ -21,6 +21,6 @@ Here's a step-by-step plan to determine the solution:
       A[0] = 1, B[0] = 0, C[0] = 0, D[0] = 0
 4. Total Valid Sequences: The total number of valid sequences of length N is the sum of the sequences ending with 0, 1, 2, or 3 missed days:
       Total(N) = A[N] + B[N] + C[N] + D[N]
-5. Sequences Missing Graduation (last day missed): These are sequences of length N−1 (valid up to N−1) ending with 0, 1, or 2 missed days (as the Nth day is missed):
-      Missed Graduation(N)=B[N−1]+C[N−1]+D[N−1]
+5. Sequences Missing Graduation (last day missed): These are sequences of length N ending with 1, 2, or 3 missed days (as the Nth day is missed):
+      Missed Graduation(N)=B[N]+C[N]+D[N]
 6. Solution Format: The result is represented as the fraction of sequences that miss the graduation ceremony over the total number of valid sequences.

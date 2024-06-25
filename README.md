@@ -15,3 +15,4 @@ Test cases:
 
 for 5 days: 14/29
 for 10 days: 372/773
+Note: to check for different number of days, please run test file with command: python test.py

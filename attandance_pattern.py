@@ -21,7 +21,7 @@ def graduation_probability(N):
         D[i] = C[i-1]
     
     total_valid = A[N] + B[N] + C[N] + D[N]
-    miss_graduation = B[N-1] + C[N-1] + D[N-1]
+    miss_graduation = B[N] + C[N] + D[N]
     
     return f"{miss_graduation}/{total_valid}"
 

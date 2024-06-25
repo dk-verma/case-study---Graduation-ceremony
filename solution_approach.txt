@@ -1,0 +1,26 @@
+To solve this problem, we need to keep track of attendance patterns over
+N days while adhering to the given attendance policy constraints. Specifically, we're not allowed to miss classes for four or more consecutive days.
+Here's a step-by-step plan to determine the solution:
+
+1. Define States: We can define states based on the number of consecutive days missed:
+    * A[i] : Number of valid sequences of length i ending with zero missed days.
+    * B[i] : Number of valid sequences of length i ending with one missed day.
+    * C[i] : Number of valid sequences of length i ending with two missed days.
+    * D[i] : Number of valid sequences of length i ending with three missed days.
+2. State Transitions:
+    * From a sequence ending with zero missed days (A[i]), the next day can either be attended (still ending with zero missed days) or missed (one missed day), so:
+      A[i+1] = A[i] + B[i] + C[i] + D[i]
+    * From a sequence ending with one missed day (B[i]), the next day can be attended (ending with zero missed days) or missed (two missed days), so: 
+      B[i+1] = A[i]
+    * From a sequence ending with two missed days (C[i]), the next day can be attended (ending with zero missed days) or missed (three missed days), so: 
+      C[i+1] = B[i]
+    * From a sequence ending with three missed days (D[i]), the next day can only be attended (ending with zero missed days), so: 
+      D[i+1] = C[i]
+3. Initial Conditions:
+    * For day 0, there's only one valid sequence with zero missed days: 
+      A[0] = 1, B[0] = 0, C[0] = 0, D[0] = 0
+4. Total Valid Sequences: The total number of valid sequences of length N is the sum of the sequences ending with 0, 1, 2, or 3 missed days:
+      Total(N) = A[N] + B[N] + C[N] + D[N]
+5. Sequences Missing Graduation (last day missed): These are sequences of length N−1 (valid up to N−1) ending with 0, 1, or 2 missed days (as the Nth day is missed):
+      Missed Graduation(N)=B[N−1]+C[N−1]+D[N−1]
+6. Solution Format: The result is represented as the fraction of sequences that miss the graduation ceremony over the total number of valid sequences.
